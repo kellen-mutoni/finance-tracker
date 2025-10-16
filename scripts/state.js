@@ -1,13 +1,11 @@
 import { saveState, loadState } from './storage.js';
 
 export let transactions = [];
-let sortState = { key: 'date', direction: 'desc' }; // Default sort: newest first
-
-// --- Data Modification Functions ---
+let sortState = { key: 'date', direction: 'desc' };
 
 export function initializeData() {
     transactions = loadState();
-    sortTransactions(); // Sort data on initial load
+    sortTransactions();
 }
 
 export function addTransaction(description, amount, category, date) {
@@ -18,7 +16,7 @@ export function addTransaction(description, amount, category, date) {
         updatedAt: new Date().toISOString()
     };
     transactions.push(newTransaction);
-    sortTransactions(); // Re-sort after adding
+    sortTransactions();
     saveState(transactions);
 }
 
@@ -29,7 +27,7 @@ export function deleteTransaction(idToDelete) {
 
 export function updateTransactions(newTransactions) {
     transactions = newTransactions;
-    sortTransactions(); // Re-sort after import
+    sortTransactions();
     saveState(transactions);
 }
 
@@ -54,7 +52,6 @@ export function sortTransactions(key) {
     });
 }
 
-// --- New Data Calculation Function ---
 
 export function getDashboardStats(data) {
     if (data.length === 0) {
@@ -64,7 +61,6 @@ export function getDashboardStats(data) {
     const totalRecords = data.length;
     const totalAmount = data.reduce((sum, txn) => sum + txn.amount, 0);
 
-    // Calculate top category
     const categoryCounts = data.reduce((acc, txn) => {
         acc[txn.category] = (acc[txn.category] || 0) + 1;
         return acc;

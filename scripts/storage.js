@@ -1,5 +1,3 @@
-// --- Handles saving, loading, importing, and exporting ---
-
 const STORAGE_KEY = 'budget-bytes-data';
 
 export function saveState(transactions) {
@@ -12,7 +10,7 @@ export function loadState() {
 }
 
 export function exportTransactions(transactions) {
-    const jsonString = JSON.stringify(transactions, null, 2); // Pretty print JSON
+    const jsonString = JSON.stringify(transactions, null, 2);
     const blob = new Blob([jsonString], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     
@@ -25,7 +23,6 @@ export function exportTransactions(transactions) {
     URL.revokeObjectURL(url);
 }
 
-// Simple validation for imported data
 function isValidImport(data) {
     if (!Array.isArray(data)) return false;
     for (const item of data) {
@@ -46,7 +43,6 @@ export function importTransactions(file, currentTransactions) {
                     throw new Error('Invalid file structure. Each record must have id, description, amount, category, and date.');
                 }
                 
-                // Merge data, avoiding duplicates based on ID
                 const existingIds = new Set(currentTransactions.map(t => t.id));
                 const newData = importedData.filter(t => !existingIds.has(t.id));
                 const combined = [...currentTransactions, ...newData];

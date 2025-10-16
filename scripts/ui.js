@@ -1,7 +1,5 @@
 import { transactions, initializeData, addTransaction, deleteTransaction, updateTransactions, sortTransactions, getDashboardStats } from './state.js';
 import { exportTransactions, importTransactions } from './storage.js';
-
-// --- Element References ---
 const mobileFormModal = document.getElementById('form-modal-mobile');
 const mobileForm = document.getElementById('transaction-form-mobile');
 const addBtnMobile = document.getElementById('add-btn-mobile');
@@ -19,7 +17,6 @@ const exportBtn = document.getElementById('export-btn');
 const importBtn = document.getElementById('import-btn');
 const importFile = document.getElementById('import-file');
 
-// --- UI Update Functions ---
 function highlightMatches(text, regex) {
     if (!regex) return text;
     const sanitizedText = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -56,7 +53,6 @@ function renderTransactions(dataToRender, regex) {
     updateDashboard(dataToRender);
 }
 
-// --- Event Listeners ---
 addBtnMobile.addEventListener('click', () => { mobileForm.reset(); mobileFormModal.classList.remove('hidden'); });
 cancelBtnMobile.addEventListener('click', () => { mobileFormModal.classList.add('hidden'); });
 
