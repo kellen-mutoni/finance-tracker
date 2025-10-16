@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+    color: #f0f0f0;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #ff00ff;
+    font-weight: 600;
+    border-bottom: 2px solid #ff00ff;
+    padding-bottom: 0.5rem;
+}
+
+header {
+    text-align: center; 
+    padding: 2rem 1rem;
+    background-color: #000000;
+}
+
+.fancy-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #fff;
+    animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+    to {
+        text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff77ff, 0 0 40px #ff77ff;
+    }
+}
+
+main {
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 1.5rem;
+    background: #111;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ff00ff;
+}
+
+footer {
+    background-color: #111;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.cards-container .card {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border-left: 5px solid #ff00ff;
+}
+
+.card p { 
+    margin-bottom: 0.5rem; 
+}
+
+.card .amount { 
+    font-weight: bold; 
+    color: #ff77ff; 
+}
+
+button {
+    padding: 0.75rem 1.5rem; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+    background: #ff00ff;
+    color: #000;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #ff77ff;
+}
+
+.add-btn-mobile {
+    position: fixed;
+    bottom: 2rem; 
+    right: 2rem;
+    width: 60px; 
+    height: 60px;
+    background: #ff00ff;
+    color: white;
+    border-radius: 50%; 
+    font-size: 2rem;
+    box-shadow: 0 0 20px #ff00ff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.add-btn-mobile:hover {
+    background-color: #ff77ff;
+    transform: scale(1.1) rotate(90deg);
+}
+
+#cancel-btn-mobile { 
+    background: #6c757d; 
+    color: white; 
+}
+
+.delete-btn { 
+    background: #c9184a; 
+    padding: 0.4rem 0.8rem; 
+    font-size: 0.9rem; 
+    color: white; 
+}
+
+.modal {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.modal-content, .form-container-desktop {
+    background: #111; 
+    border: 1px solid #ff00ff;
+    padding: 2rem; 
+    border-radius: 8px; 
+    width: 90%; 
+    max-width: 500px;
+}
+
+.modal-content label, .form-container-desktop label { 
+    display: block; 
+    margin-top: 1rem; 
+    margin-bottom: 0.25rem; 
+    color: #ff00ff; 
+}
+
+.modal-content input, .modal-content select, 
+.form-container-desktop input, .form-container-desktop select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ff00ff;
+    border-radius: 4px;
+    background-color: #000;
+    color: #f0f0f0;
+}
+
+.hidden { 
+    display: none; 
+}
+
+.form-container-desktop, .transaction-table {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    main { 
+        display: flex; 
+        gap: 1.5rem; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+    }
+    
+    .left-column { flex: 1; }
+    .right-column { flex: 2; }
+    
+    .add-btn-mobile, .cards-container { 
+        display: none; 
+    }
+ 
+    .form-container-desktop, .transaction-table { 
+        display: block; 
+    }
+    
+    .transaction-table { 
+        width: 100%; 
+        border-collapse: collapse; 
+    }
+    
+    .transaction-table th, .transaction-table td {
+        padding: 0.75rem; 
+        text-align: left; 
+        border-bottom: 1px solid #ff00ff;
+    }
+    
+    .transaction-table th { 
+        background-color: #1a1a1a; 
+        color: #ff00ff; 
+    }
+}
+
+.search-container {
+    margin-bottom: 1.5rem;
+}
+
+.search-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ff00ff;
+    font-weight: 600;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ff00ff;
+    border-radius: 4px;
+    background-color: #000;
+    color: #f0f0f0;
+}
+
+#search-input.invalid {
+    border-color: #ff4d6d !important;
+    box-shadow: 0 0 5px #ff4d6d;
+}
+
+mark {
+    background-color: #ff00ff;
+    color: #000;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+#data-management .data-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #ff00ff;
+    color: black;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+.transaction-table th[data-sort] {
+    cursor: pointer;
+    user-select: none; 
+}
+
+.transaction-table th[data-sort]:hover {
+    color: #ff77ff; 
+}

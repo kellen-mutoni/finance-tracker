@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Bytes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/ui.js" type="module"></script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+ <header>
+    <h1 class="fancy-title">Budget Bytes</h1>
+</header>
+
+    <main>
+        <main id="main-content"></main>
+        <div class="left-column">
+            <section id="dashboard" class="dashboard-container">
+                <h2>Dashboard</h2>
+                <div id="stats-content">
+                    <p>Total Transactions: <span id="total-records">0</span></p>
+                    <p>Total Spent: $<span id="total-amount">0.00</span></p>
+                    <p>Top Category: <span id="top-category">N/A</span></p>
+
+                </div>
+            </section>
+
+            <section id="data-management">
+    <h2>Data Management</h2>
+    <div class="data-buttons">
+        <button id="export-btn">Export Data (JSON)</button>
+        <button id="import-btn">Import Data (JSON)</button>
+        <input type="file" id="import-file" accept=".json" class="hidden">
+    </div>
+</section>
+    
+            <section id="form-container-desktop" class="form-container-desktop">
+                <h2>Add Transaction</h2>
+                <form id="transaction-form-desktop">
+                    <label for="desc-desktop">Description:</label>
+                    <input type="text" id="desc-desktop" required>
+                    <label for="amount-desktop">Amount ($):</label>
+                    <input type="number" id="amount-desktop" step="0.01" required>
+                    <label for="category-desktop">Category:</label>
+                    <select id="category-desktop" required>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Books">Books</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label for="date-desktop">Date:</label>
+                    <input type="date" id="date-desktop" required>
+                    <button type="submit">Add Transaction</button>
+                </form>
+            </section>
+        </div>
+
+        <div class="right-column">
+            <section id="transactions">
+                <h2>Transactions</h2>
+                <div class="search-container">
+    <label for="search-input">Search (Regex):</label>
+    <input type="text" id="search-input" placeholder="e.g., coffee">
+</div>
+                <div id="transaction-cards" class="cards-container"></div>
+                <table id="transaction-table" class="transaction-table">
+                    <thead>
+                        <tr>
+<th data-sort="date">Date</th>
+<th data-sort="description">Description</th>
+<th data-sort="amount">Amount</th>
+<th>Category</th> <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+    
+    <button id="add-btn-mobile" class="add-btn-mobile">+</button>
+
+    <div id="form-modal-mobile" class="modal hidden">
+        <form id="transaction-form-mobile" class="modal-content">
+            <h2>New Transaction</h2>
+            <label for="desc-mobile">Description:</label>
+            <input type="text" id="desc-mobile" required>
+            <label for="amount-mobile">Amount ($):</label>
+            <input type="number" id="amount-mobile" step="0.01" required>
+            <label for="category-mobile">Category:</label>
+            <select id="category-mobile" required>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Books">Books</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Other">Other</option>
+            </select>
+            <label for="date-mobile">Date:</label>
+            <input type="date" id="date-mobile" required>
+            <div class="form-buttons">
+                <button type="button" id="cancel-btn-mobile">Cancel</button>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+<div id="status-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <footer>
+        <p>&copy; 2025 Ashley Kellen Mutoni</p>
+    </footer>
+
+</body>
+</html>
