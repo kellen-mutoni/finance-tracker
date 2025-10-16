@@ -6,9 +6,9 @@ Budget Bytes is a simple functional and well accessible financial tracker web ap
 
 Live Demo
 
-[View the live project here!](https://kellen-mutoni.github.io/finance-tracker/)
+View the live project here: https://kellen-mutoni.github.io/finance-tracker/
 
-(Note: Replace the link above with your actual GitHub Pages URL after deployment.)
+Video Demo link: https://youtu.be/1pkFmuYWqLo
 
 ---
 
